@@ -1,2 +1,2 @@
 # csvTableScraper
-ok lets try this for the third time and maybe i wont goof again
+csv scraper for a very very specific purpose. dont use this, even though no one will see this
