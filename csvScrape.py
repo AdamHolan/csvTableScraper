@@ -59,27 +59,35 @@ for file in glob.glob('*.csv'):
 # remove anything that isn't a country
 countriesList = [x for x in countriesList if x not in unacceptable]
 
-# if the country appears more than once, add it if it doesn't already exist
+maxNum = 0
+
+# if the country appears every time, add it if it doesn't already exist
 for country in countriesList:
-    if countriesList.count(country) > 1:
+    if countriesList.count(country) > maxNum:
+        maxNum = countriesList.count(country)
+        print(maxNum)
+
+for country in countriesList:
+    if countriesList.count(country) == maxNum:
         if country not in multiplesList:
             multiplesList.append(country)
     else:
-        singlesList.append(country)
+        if country not in singlesList:
+            singlesList.append(country)
 
 # i sort for clarity
 multiplesList.sort()
 singlesList.sort()
 
 # add shit to first file
-file = open('moreThanOnce.txt', 'w+')
-file.write('The countries that are in multiple events: \n')
+file = open('everyTime.txt', 'w+')
+file.write('These countries are in every event (' + str(maxNum) + ' times): \n')
 
 for entry in multiplesList:
     file.write(entry + '\n')
 # add shit to second file
-file2 = open('onlyOnce.txt', 'w+')
-file2.write('The countries that only participated once are: \n')
+file2 = open('lessThanEvery.txt', 'w+')
+file2.write('These countries participated less than ' + str(maxNum) + ' times \n')
 
 for entry in singlesList:
     file2.write(entry + '\n')
