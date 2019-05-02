@@ -1,2 +1,4 @@
 # csvTableScraper
-csv scraper for a very very specific purpose. dont use this, even though no one will see this
+csv scraper for a very very specific purpose. dont use this.]
+
+honestly it would have been easier to use pandas or something, but this was a fun problem to solve.
